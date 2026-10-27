@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>وَرَق — متجر الكتب الإلكترونية</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9e7f5;--ink:#1c1b3a;--mute:#5d5b80;--card:#f6f5fc;--line:#c9c6e4;--acc:#f2b33d;--coral:#e4572e;--teal:#1f7a78;--shelf:#2a2250;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15132b;--ink:#ece9ff;--mute:#a3a0cc;--card:#201d3f;--line:#37335f;--shelf:#0d0b1d}}
+:root[data-theme="dark"]{--bg:#15132b;--ink:#ece9ff;--mute:#a3a0cc;--card:#201d3f;--line:#37335f;--shelf:#0d0b1d}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.8 "IBM Plex Sans Arabic",Tahoma,sans-serif;overflow-x:hidden}
+h1,h2,h3,.logo{font-family:"Reem Kufi","IBM Plex Sans Arabic",Tahoma,sans-serif;line-height:1.3}
+button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
+button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px)}
+.logo{font-size:30px;font-weight:700}.logo i{color:var(--coral);font-style:normal}
+.cartbtn{position:relative;background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:99px;font-weight:600;transition:transform .2s}
+.cartbtn:active{transform:scale(.94)}
+.cartbtn b{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-inline-start:8px;border-radius:99px;background:var(--acc);color:#1c1b3a;font-size:13px}
+.cartbtn.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.15) rotate(-3deg)}}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4vw;align-items:center;padding:6vh 5vw 8vh;min-height:78vh}
+.hero h1{font-size:clamp(38px,6.4vw,84px);font-weight:700}
+.hero h1 span{display:inline-block;overflow:hidden;vertical-align:top}
+.hero h1 span em{display:inline-block;font-style:normal;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.12s + .2s)}
+@keyframes rise{to{transform:none}}
+.hero p{max-width:34ch;margin:22px 0 30px;color:var(--mute);font-size:18px;opacity:0;animation:fade .8s 1s forwards}
+@keyframes fade{to{opacity:1}}
+.cta{display:inline-block;background:var(--coral);color:#fff;padding:14px 30px;border-radius:14px;font-weight:600;text-decoration:none;box-shadow:0 8px 0 #a83a1c;transition:transform .15s,box-shadow .15s;opacity:0;animation:fade .8s 1.2s forwards}
+.cta:active{transform:translateY(6px);box-shadow:0 2px 0 #a83a1c}
+.stage{perspective:1100px;display:grid;place-items:center;height:min(60vh,460px)}
+.b3d{position:relative;width:min(48vw,260px);aspect-ratio:3/4.2;transform-style:preserve-3d;transform:rotateY(-28deg) rotateX(6deg);transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{translate:0 -14px}}
+.b3d .cv{position:absolute;inset:0;border-radius:4px 10px 10px 4px;transform:translateZ(18px)}
+.b3d::before{content:"";position:absolute;inset:0;transform:translateZ(-18px);background:#fff;border-radius:4px 10px 10px 4px;box-shadow:0 40px 50px rgba(20,15,60,.35)}
+.b3d::after{content:"";position:absolute;top:2px;bottom:2px;right:-18px;width:36px;transform:rotateY(90deg);background:repeating-linear-gradient(90deg,#fff 0 2px,#ddd 2px 3px)}
+.cv{display:flex;flex-direction:column;justify-content:space-between;padding:8% 9%;overflow:hidden;color:var(--t);background-color:var(--c)}
+.cv::after{content:"";position:absolute;inset:0;background:var(--p);pointer-events:none}
+.cv h3{position:relative;z-index:1;font-size:clamp(20px,3.4vw,32px);font-weight:700}
+.cv small{position:relative;z-index:1;font-size:12px;opacity:.85}
+.cv-sm{font-size:11px}
+.wrap{padding:6vh 5vw}
+.wrap h2{font-size:clamp(28px,4vw,46px)}
+.sub{color:var(--mute);max-width:46ch}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 10px}
+.chip{padding:6px 18px;border-radius:99px;border:2px solid var(--line);transition:all .25s}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.shelfwrap{overflow-x:auto;padding:70px 8px 0;margin-inline:-8px}
+.shelf{display:flex;align-items:flex-end;gap:5px;min-width:max-content;padding:0 20px;border-bottom:16px solid var(--shelf);box-shadow:0 18px 22px -10px rgba(20,15,60,.35)}
+.spine{writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;justify-content:space-between;padding:16px 4px;border-radius:3px 3px 0 0;color:var(--t);background-color:var(--c);background-image:var(--p);font-family:"Reem Kufi",sans-serif;font-weight:700;font-size:17px;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .35s,filter .3s;transform-origin:bottom right}
+.spine small{font:500 11px "IBM Plex Sans Arabic",sans-serif;opacity:.8}
+.spine:hover{transform:translateY(-14px)}
+.spine[aria-selected="true"]{transform:translateY(-34px) rotate(-4deg);filter:drop-shadow(0 14px 12px rgba(20,15,60,.4))}
+.spine.off{display:none}
+.hint{margin-top:14px;font-size:14px;color:var(--mute)}
+.panel{display:grid;grid-template-columns:.8fr 1.2fr;gap:5vw;align-items:center;margin-top:36px;padding:5vw;background:var(--card);border-radius:28px;border:1px solid var(--line)}
+.panel .stage{height:360px}.panel .b3d{width:210px;animation:none}
+.panel.swap .b3d{animation:pull .7s cubic-bezier(.2,.9,.3,1.2)}
+.panel.swap .info>*{animation:slide .55s both;animation-delay:calc(var(--k)*.07s)}
+@keyframes pull{from{translate:0 80px;opacity:0;rotate:y 60deg}}
+@keyframes slide{from{opacity:0;transform:translateX(-26px)}}
+.tag{display:inline-block;background:var(--acc);color:#1c1b3a;padding:2px 14px;border-radius:99px;font-size:14px;font-weight:600}
+.info h3{font-size:clamp(28px,4vw,44px);margin:12px 0 2px}
+.meta{color:var(--mute);font-size:14px}
+.info p.d{margin:14px 0;max-width:48ch}
+.price{font:700 34px "Reem Kufi",sans-serif;margin-inline-end:18px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:10px}
+.btn{padding:12px 26px;border-radius:12px;font-weight:600;transition:transform .15s,background .25s}
+.btn:active{transform:scale(.95)}
+.btn.main{background:var(--teal);color:#fff}.btn.main.done{background:var(--ink);color:var(--bg)}
+.btn.ghost{border:2px solid var(--ink)}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.perks div{padding:22px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.perks h3{font-size:20px}.perks p{color:var(--mute);font-size:15px}
+footer{padding:40px 5vw;color:var(--mute);text-align:center;font-size:14px}
+.modal,.drawer-bg{position:fixed;inset:0;z-index:40;background:rgba(15,10,45,.6);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.show{opacity:1;pointer-events:auto}
+.sheet{width:min(92vw,420px);min-height:420px;max-height:86vh;overflow:auto;perspective:1200px;background:#fbf7ec;color:#2b2a3d;border-radius:8px 18px 18px 8px;padding:34px 30px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:scale(.9);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
+.modal.show .sheet{transform:none}
+.pg{transform-origin:right center;animation:flip .65s cubic-bezier(.3,.8,.3,1)}
+@keyframes flip{from{transform:rotateY(80deg);opacity:0}}
+.pg ul{padding-inline-start:18px}.pg li{font-size:14px;line-height:1.9;margin-bottom:6px;direction:ltr;text-align:left}.pg h3{font-size:26px;margin-bottom:10px}.pg p{font-size:17px;line-height:2}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:14px}
+.nav button{background:#2b2a3d;color:#fbf7ec;padding:6px 16px;border-radius:8px}.nav button:disabled{opacity:.3}
+.x{position:absolute;top:8px;left:12px;font-size:26px}
+.drawer-bg{place-items:stretch end;justify-items:start}
+.drawer{width:min(92vw,380px);height:100%;background:var(--card);padding:24px;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .45s cubic-bezier(.2,.9,.3,1)}
+.drawer-bg.show .drawer{transform:none}
+.drawer ul{list-style:none;padding:0;flex:1;overflow:auto;margin-top:14px}
+.drawer li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);animation:slide .4s both}
+.drawer li .cv{position:relative;width:44px;height:60px;border-radius:3px;padding:4px;flex:none}
+.drawer li div{flex:1;font-size:14px}.drawer li b{display:block;font-size:15px}
+.total{display:flex;justify-content:space-between;font:700 22px "Reem Kufi",sans-serif;padding:14px 0}
+.toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;translate:-50% 140px;background:var(--ink);color:var(--bg);padding:12px 24px;border-radius:14px;z-index:60;transition:translate .5s cubic-bezier(.3,1.4,.5,1);max-width:90vw;text-align:center}
+.toast.show{translate:-50% 0}
+@media (max-width:760px){.hero,.panel{grid-template-columns:1fr}.hero{min-height:auto}.stage{height:340px}.perks{grid-template-columns:1fr}.panel .stage{height:300px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">وَرَ<i>ق</i></div>
+  <button class="cartbtn" id="cartBtn" aria-label="فتح السلة">السلة<b id="cnt">0</b></button>
+</header>
+
+<section class="hero">
+  <div>
+    <h1><span><em style="--i:0">مكتبتك</em></span> <span><em style="--i:1">كاملة،</em></span><br><span><em style="--i:2">على</em></span> <span><em style="--i:3">رفٍّ</em></span> <span><em style="--i:4">واحد</em></span></h1>
+    <p>اسحب أي كتاب من الرف، اقرأ عيّنته مجانًا، ثم احمله إلى جهازك بنقرة واحدة.</p>
+    <a class="cta" href="#shelf">تصفّح الرف</a>
+  </div>
+  <div class="stage" id="heroStage"><div class="b3d" id="heroBook"></div></div>
+</section>
+
+<section class="wrap" id="shelf">
+  <h2>الرف</h2>
+  <p class="sub">كل كتاب هنا عبارة عن كعب على الرف. المس أحدها ليخرج ويعرض تفاصيله.</p>
+  <div class="chips" id="chips" role="group" aria-label="التصنيفات"></div>
+  <div class="shelfwrap"><div class="shelf" id="spines" role="listbox" aria-label="الكتب"></div></div>
+  <p class="hint">كلما زادت صفحات الكتاب زاد عرض كعبه.</p>
+  <div class="panel" id="panel"></div>
+</section>
+
+<section class="wrap">
+  <h2>لماذا وَرَق؟</h2>
+  <div class="perks">
+    <div><h3>مصادر في كل كتاب</h3><p>كل كتيّب ينتهي بقائمة مراجع يمكنك التحقق منها.</p></div>
+    <div><h3>تحميل فوري</h3><p>يصلك الكتاب بصيغتي كتيّب إلكتروني بعد الدفع مباشرة.</p></div>
+    <div><h3>لك مدى الحياة</h3><p>كتبك تبقى في حسابك، وتحميلها متاح دائمًا.</p></div>
+  </div>
+</section>
+<footer>© ٢٠٢٦ وَرَق · جميع الحقوق محفوظة</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="عيّنة من الكتاب">
+  <div class="sheet"><button class="x" id="mx" aria-label="إغلاق">×</button><div id="pgBox"></div>
+    <div class="nav"><button id="nx">التالي</button><span id="pn"></span><button id="pv">السابق</button></div></div>
+</div>
+<div class="drawer-bg" id="dbg"><aside class="drawer" aria-label="سلة المشتريات">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h3>سلتك</h3><button id="dx" aria-label="إغلاق السلة" style="font-size:28px">×</button></div>
+  <ul id="items"></ul>
+  <div class="total"><span>المجموع</span><span id="tot">0 ر.س</span></div>
+  <button class="btn main" id="pay">إتمام الشراء</button>
+</aside></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const P=["repeating-linear-gradient(45deg,rgba(255,255,255,.13) 0 6px,transparent 6px 14px)","radial-gradient(circle at 70% 28%,rgba(255,255,255,.26) 0 22%,transparent 23%)","repeating-radial-gradient(circle at 0 100%,rgba(255,255,255,.16) 0 8px,transparent 8px 18px)","linear-gradient(135deg,rgba(255,255,255,.2) 50%,transparent 50%)"];
+const B=[
+{t:"عادات صغيرة",a:"فريق وَرَق",k:"تطوير الذات",pr:39,n:56,c:"#f2b33d",x:"#1c1b3a",p:1,d:"كيف تبني عادة جديدة بخطوات صغيرة جدًا، مستندًا إلى أبحاث علم النفس.",
+ch:[["لماذا نفشل في التغيير؟","نبدأ غالبًا بأهداف ضخمة تعتمد على الحماس، والحماس يتلاشى سريعًا. تقترح الأبحاث السلوكية أن يكون السلوك الجديد صغيرًا إلى حد يصعب معه الرفض، كأن تقرأ صفحة واحدة أو تمشي خمس دقائق، ثم تكبر العادة تدريجيًا."],["اربط العادة بما تفعله أصلًا","يقترح بي جي فوغ ربط السلوك الجديد بعادة قائمة: «بعد أن أغسل أسناني، أكتب سطرًا في دفتري». المرساة الثابتة تغنيك عن الاعتماد على الذاكرة أو المزاج."],["كم يستغرق الأمر فعلًا؟","يُشاع أن العادة تحتاج ٢١ يومًا، لكن دراسة لالي وزملائها (٢٠١٠) وجدت أن الوسيط نحو ٦٦ يومًا، وتراوح بين ١٨ و٢٥٤ يومًا حسب الشخص والعادة. وأظهرت الدراسة نفسها أن تفويت يوم واحد لا يفسد العملية."]],
+s:["James Clear, Atomic Habits (2018)","B. J. Fogg, Tiny Habits (2019)","Lally P. et al., «How are habits formed», European Journal of Social Psychology, 2010"]},
+{t:"نوم عميق",a:"فريق وَرَق",k:"صحة",pr:37,n:48,c:"#3a2f7a",x:"#f2b33d",p:3,d:"ما يقوله العلم عن ساعات النوم الكافية وعادات مسائية بسيطة لنوم أفضل.",
+ch:[["كم ساعة تحتاج؟","توصي الأكاديمية الأمريكية لطب النوم وجمعية أبحاث النوم بأن ينام البالغ سبع ساعات أو أكثر كل ليلة للحفاظ على صحته. تختلف الحاجة قليلًا من شخص لآخر، لكن قلة النوم المزمنة ارتبطت بمشكلات في المزاج والتركيز والصحة العامة."],["الكافيين والضوء","أظهرت تجربة نشرها دريك وزملاؤه (٢٠١٣) أن تناول الكافيين قبل النوم بست ساعات قلّل مدة النوم نحو ساعة. وتنبّه الدراسات إلى أن ضوء الشاشات مساءً قد يؤخر النعاس، فخفّف الإضاءة قبل النوم بساعة."],["روتين مسائي بسيط","ثبّت موعد النوم والاستيقاظ حتى في الإجازة، واجعل الغرفة مظلمة وباردة، وأبعد الهاتف عن السرير. إن استمر الأرق أسابيع فاستشر طبيبًا؛ هذا الكتيّب معلومات عامة ولا يغني عن الاستشارة الطبية."]],
+s:["Watson N. et al., consensus statement, Sleep, 2015 (AASM وSRS)","Drake C. et al., «Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed», Journal of Clinical Sleep Medicine, 2013","Matthew Walker, Why We Sleep (2017) — كتاب مؤثر لكن بعض ادعاءاته انتُقدت علميًا"]},
+{t:"طعام يشفي",a:"فريق وَرَق",k:"صحة",pr:44,n:64,c:"#5aa469",x:"#14213d",p:1,d:"أساسيات التغذية المتوازنة وفق توصيات منظمة الصحة العالمية والدراسات الكبرى.",
+ch:[["الأساس: خضار وفاكهة","توصي منظمة الصحة العالمية بتناول ما لا يقل عن ٤٠٠ غرام من الخضار والفاكهة يوميًا، أي نحو خمس حصص. كما تنصح بالحبوب الكاملة والبقوليات والمكسرات بدل الدقيق الأبيض."],["السكر والملح","تنصح المنظمة بألا تتجاوز السكريات الحرة ١٠٪ من إجمالي الطاقة، وبأن يقل الملح عن ٥ غرامات يوميًا (نحو ملعقة صغيرة). اقرأ الملصق الغذائي، فالملح والسكر يختبئان في الأطعمة المصنّعة."],["نموذج البحر المتوسط","في تجربة «بريديميد» الإسبانية (٢٠١٣) انخفضت الأحداث القلبية الوعائية لدى من اتبعوا حمية متوسطية غنية بزيت الزيتون أو المكسرات. سُحبت الدراسة ثم أُعيد نشرها عام ٢٠١٨ بتحليل مصحّح وخلاصات مشابهة. استشر مختصًا قبل أي تغيير كبير في نظامك الغذائي."]],
+s:["WHO, «Healthy diet» fact sheet","Estruch R. et al., PREDIMED, New England Journal of Medicine, 2013 (أُعيد نشرها 2018)"]},
+{t:"ميزانية بلا قلق",a:"فريق وَرَق",k:"أعمال",pr:45,n:52,c:"#2a2250",x:"#f2b33d",p:3,d:"طريقة بسيطة لتقسيم دخلك وبناء صندوق طوارئ، حتى لو كان دخلك محدودًا.",
+ch:[["قاعدة ٥٠/٣٠/٢٠","اشتهرت القاعدة في كتاب إليزابيث وارين وأميليا تياجي (٢٠٠٥): نحو ٥٠٪ من الدخل للضروريات، و٣٠٪ للرغبات، و٢٠٪ للادخار وسداد الديون. هي نقطة بداية لا قانون؛ عدّل النسب حسب ظروفك."],["صندوق الطوارئ","تنصح الجهات المالية عادةً بادخار مصروف ثلاثة إلى ستة أشهر. ابدأ بهدف صغير كراتب أسبوع، ثم زِده. يمنعك الصندوق من الاقتراض عند أول طارئ."],["السلوك أهم من الأرقام","يرى مورغان هاوسل في «سيكولوجية المال» (٢٠٢٠) أن النجاح المالي يتعلق بالسلوك أكثر من الذكاء: ادخار منتظم وصبر طويل. هذا المحتوى تعليمي ولا يُعد استشارة مالية."]],
+s:["Elizabeth Warren & Amelia Warren Tyagi, All Your Worth (2005)","Morgan Housel, The Psychology of Money (2020)","CFPB — consumerfinance.gov (موارد صندوق الطوارئ)"]},
+{t:"الذكاء الاصطناعي ببساطة",a:"فريق وَرَق",k:"تقنية",pr:55,n:72,c:"#3b5bdb",x:"#fff",p:1,d:"شرح بلا تعقيد لكيفية عمل الذكاء الاصطناعي وكيف تستفيد منه وتتجنب أخطاءه.",
+ch:[["ما هو الذكاء الاصطناعي؟","هو مجال يهدف إلى بناء أنظمة تؤدي مهامًا تتطلب عادةً ذكاءً بشريًا، كفهم اللغة والتعرف على الصور. يعرض كتاب راسل ونورفيغ، وهو مرجع جامعي واسع، المجال بوصفه دراسة «الوكلاء» الذين يدركون بيئتهم ويتصرفون فيها."],["التعلّم من البيانات","بدل كتابة قواعد يدوية، تتعلم النماذج الأنماط من أمثلة كثيرة. وفي عام ٢٠١٧ نشر باحثو غوغل ورقة «الانتباه هو كل ما تحتاجه» التي قدّمت بنية «المحوّل» التي تقوم عليها معظم النماذج اللغوية الحديثة."],["كيف تستفيد وتحذر؟","استخدمه للمسودات والتلخيص والأفكار، وراجع المعلومات المهمة من مصدر موثوق، فالنماذج قد تخطئ بثقة. ويتابع تقرير مؤشر الذكاء الاصطناعي من جامعة ستانفورد تطور القدرات والمخاطر سنويًا."]],
+s:["Russell & Norvig, Artificial Intelligence: A Modern Approach, 4th ed., 2020","Vaswani A. et al., «Attention Is All You Need», 2017","Stanford HAI, AI Index Report (سنوي)"]},
+{t:"نبض الكون",a:"فريق وَرَق",k:"علوم",pr:48,n:60,c:"#0b3d91",x:"#fff",p:2,d:"رحلة مبسّطة من الانفجار العظيم إلى النجوم التي صُنعت منها ذرات جسمك.",
+ch:[["عمر الكون","تُقدّر نتائج قمر «بلانك» عمر الكون بنحو ١٣٫٨ مليار سنة. بدأ بالانفجار العظيم، ثم تشكّلت الذرات الخفيفة الأولى: الهيدروجين والهليوم."],["مصانع العناصر","العناصر الأثقل، كالكربون والأكسجين والحديد، تكوّنت داخل النجوم وفي انفجارات المستعرات العظمى. لذلك يصح القول إن ذرات جسمك صُنعت في نجوم قديمة؛ وهي فكرة أشاعها كارل ساغان في «الكون»."],["نظامنا الشمسي","تكوّنت الشمس قبل نحو ٤٫٦ مليار سنة. وتوفّر وكالة ناسا ووكالة الفضاء الأوروبية صورًا وبيانات مفتوحة يمكنك استكشافها بنفسك."]],
+s:["Planck Collaboration, «Planck 2018 results. VI», Astronomy & Astrophysics, 2020","Carl Sagan, Cosmos (1980)","NASA Science — science.nasa.gov"]},
+{t:"ظلال بغداد",a:"فريق وَرَق",k:"تاريخ",pr:54,n:80,c:"#7a4b2a",x:"#fff",p:0,d:"كيف صارت بغداد العباسية مركزًا للعلم والترجمة والورّاقين.",
+ch:[["مدينة السلام","أسس الخليفة العباسي المنصور بغداد عام ٧٦٢م، وصارت خلال عقود من أكبر مدن العالم ومركزًا للتجارة والعلم."],["حركة الترجمة","ازدهرت في بغداد حركة ترجمة واسعة من اليونانية والفارسية والسريانية وغيرها إلى العربية. يرى ديميتري غوتاس أنها حركة دعمتها الدولة والنخب التجارية. أما دقة وصف «بيت الحكمة» كمؤسسة واحدة فمحل نقاش بين المؤرخين."],["أثر الورق والخوارزمي","انتقلت صناعة الورق إلى العالم الإسلامي في القرن الثامن، وسهّلت نسخ الكتب وتداولها. وكتب الخوارزمي نحو عام ٨٢٠م كتاب «الجبر والمقابلة» الذي أعطى علم الجبر اسمه."]],
+s:["Dimitri Gutas, Greek Thought, Arabic Culture (1998)","Jim Al-Khalili, Pathfinders: The Golden Age of Arabic Science (2010)","Jonathan Bloom, Paper Before Print (2001)"]},
+{t:"برمجة للجميع",a:"فريق وَرَق",k:"تقنية",pr:57,n:90,c:"#0f766e",x:"#fff",p:3,d:"أساسيات البرمجة من الصفر بمشروع صغير تبني به أول صفحة ويب.",
+ch:[["ما هي البرمجة؟","هي كتابة تعليمات واضحة يُنفّذها الحاسوب بالحرف. تعلّم ثلاثة أشياء أولًا: المتغيرات لحفظ القيم، والشروط لاتخاذ القرار، والحلقات لتكرار العمل."],["ابدأ بمشروع صغير","ابنِ صفحة ويب شخصية بلغات HTML وCSS وجافاسكربت. توفّر موزيلا توثيقًا مجانيًا ممتازًا في MDN Web Docs، ويتوفر كتاب «Eloquent JavaScript» لمارين هافربيكه مجانًا على الإنترنت."],["تعلّم بالممارسة","اكتب كل يوم ولو عشرين دقيقة، وحاول إصلاح الأخطاء بنفسك قبل البحث عن الحل. ويقدم كورس CS50 من جامعة هارفارد مدخلًا مجانيًا لعلوم الحاسوب."]],
+s:["MDN Web Docs — developer.mozilla.org","Marijn Haverbeke, Eloquent JavaScript (4th ed.)","Harvard CS50 — cs50.harvard.edu"]}
+];
+const $=s=>document.querySelector(s);let cur=0,cart=[],cat="الكل";
+const sty=b=>`--c:${b.c};--t:${b.x};--p:${P[b.p]}`;
+const cover=(b,c="")=>`<div class="cv ${c}" style="${sty(b)}"><small>${b.k}</small><h3>${b.t}</h3><small>${b.a}</small></div>`;
+$("#heroBook").innerHTML=cover(B[0]);
+const cats=["الكل",...new Set(B.map(b=>b.k))];
+$("#chips").innerHTML=cats.map(c=>`<button class="chip" aria-pressed="${c==cat}">${c}</button>`).join("");
+$("#chips").onclick=e=>{const c=e.target.closest(".chip");if(!c)return;cat=c.textContent;
+ document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x==c));
+ document.querySelectorAll(".spine").forEach((s,i)=>s.classList.toggle("off",cat!="الكل"&&B[i].k!=cat));
+ const f=B.findIndex(b=>cat=="الكل"||b.k==cat);if(cat!="الكل"&&B[cur].k!=cat)pick(f)};
+$("#spines").innerHTML=B.map((b,i)=>`<button class="spine" role="option" aria-selected="false" aria-label="${b.t}" style="${sty(b)};width:${30+b.n/1.5}px;height:${200+(b.n%7)*14}px"><span>${b.t}</span><small>${b.n}</small></button>`).join("");
+$("#spines").onclick=e=>{const s=e.target.closest(".spine");if(s)pick([...$("#spines").children].indexOf(s))};
+function pick(i){cur=i;document.querySelectorAll(".spine").forEach((s,j)=>s.setAttribute("aria-selected",j==i));
+ const b=B[i],has=cart.includes(i);
+ $("#panel").classList.remove("swap");void $("#panel").offsetWidth;$("#panel").classList.add("swap");
+ $("#panel").innerHTML=`<div class="stage"><div class="b3d tilt">${cover(b)}</div></div><div class="info">
+ <span class="tag" style="--k:0">${b.k}</span><h3 style="--k:1">${b.t}</h3><div class="meta" style="--k:2">${b.a} · ${b.n} صفحة · كتيّب إلكتروني</div>
+ <p class="d" style="--k:3">${b.d}</p><div class="row" style="--k:4"><span class="price">${b.pr} ر.س</span>
+ <button class="btn main ${has?"done":""}" id="add">${has?"في السلة ✓":"أضف إلى السلة"}</button><button class="btn ghost" id="smp">اقرأ الكتيّب</button></div></div>`;
+ document.querySelectorAll(".spine")[i].scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+ $("#add").onclick=()=>{if(!cart.includes(cur)){cart.push(cur);upd();toast("أُضيف «"+B[cur].t+"» إلى السلة");pick(cur)}else openCart()};
+ $("#smp").onclick=openSample;bindTilt()}
+function bindTilt(){document.querySelectorAll(".stage").forEach(st=>{const b=st.querySelector(".b3d");if(!b)return;
+ st.onpointermove=e=>{const r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;b.style.transform=`rotateY(${-28+x*-50}deg) rotateX(${6+y*-24}deg)`};
+ st.onpointerleave=()=>b.style.transform=""})}
+let pg=0,pages=[];
+function showPg(){const b=B[cur];$("#pgBox").innerHTML=`<div class="pg">${pages[pg]}</div>`;$("#pn").textContent=(pg+1)+" / "+pages.length;$("#nx").disabled=pg==pages.length-1;$("#pv").disabled=pg==0}
+function openSample(){const b=B[cur];pg=0;pages=[`<h3>${b.t}</h3><p>${b.a}</p><p style="color:#777;font-size:14px">كتيّب معرفي مدعوم بالمصادر</p>`,...b.ch.map(c=>`<h3>${c[0]}</h3><p>${c[1]}</p>`),`<h3>المصادر</h3><ul>${b.s.map(x=>`<li>${x}</li>`).join("")}</ul><p style="font-size:13px;color:#777">راجع المصادر الأصلية قبل الاعتماد عليها.</p>`];showPg();$("#modal").classList.add("show")}
+$("#nx").onclick=()=>{pg++;showPg()};$("#pv").onclick=()=>{pg--;showPg()};
+$("#mx").onclick=()=>$("#modal").classList.remove("show");$("#modal").onclick=e=>{if(e.target.id=="modal")$("#modal").classList.remove("show")};
+function upd(){$("#cnt").textContent=cart.length;$("#cartBtn").classList.remove("bump");void $("#cartBtn").offsetWidth;$("#cartBtn").classList.add("bump");
+ $("#items").innerHTML=cart.length?cart.map((i,k)=>`<li style="animation-delay:${k*.05}s">${cover(B[i])}<div><b>${B[i].t}</b>${B[i].pr} ر.س</div><button data-r="${i}" aria-label="حذف">×</button></li>`).join(""):`<li>السلة فارغة. اسحب كتابًا من الرف.</li>`;
+ $("#tot").textContent=cart.reduce((s,i)=>s+B[i].pr,0)+" ر.س"}
+$("#items").onclick=e=>{const r=e.target.dataset.r;if(r!==undefined){cart=cart.filter(i=>i!=r);upd();pick(cur)}};
+function openCart(){$("#dbg").classList.add("show")}
+$("#cartBtn").onclick=openCart;$("#dx").onclick=()=>$("#dbg").classList.remove("show");$("#dbg").onclick=e=>{if(e.target.id=="dbg")$("#dbg").classList.remove("show")};
+$("#pay").onclick=()=>{if(!cart.length)return toast("أضف كتابًا أولًا");const n=cart.length;cart=[];upd();$("#dbg").classList.remove("show");pick(cur);toast("تم الطلب! أُرسل "+n+" كتاب إلى بريدك")};
+let tm;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(tm);tm=setTimeout(()=>t.classList.remove("show"),2600)}
+upd();pick(0);bindTilt();
+</script>
+</body>
+</html>
